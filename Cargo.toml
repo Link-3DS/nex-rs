@@ -9,6 +9,7 @@ edition = "2021"
 ntest = "0.7.5"
 
 [dependencies]
+arc4 = "0.1.0"
 async-trait = "0.1.52"
 byteorder = "1.5.0"
 cipher = "0.4.4"
@@ -17,7 +18,9 @@ hmac = "0.12.1"
 md-5 = "0.10.1"
 no_std_io = { git = "https://github.com/Link-3DS/no_std_io.git", rev = "4a9ca86" }
 num_cpus = "1.16.0"
+num_enum = "0.7.3"
 rand = "0.8.5"
+rc4 = "0.1.0"
 rust-crypto = "0.2.36"
 snafu = { version = "0.6.10", default-features = false }
 
