@@ -1,6 +1,6 @@
 pub mod sum;
-pub mod prudp;
 pub mod types;
+pub mod client;
 pub mod packet;
 pub mod crypto;
 pub mod counter;

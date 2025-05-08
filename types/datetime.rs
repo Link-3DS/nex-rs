@@ -21,12 +21,12 @@ impl DateTime {
         let month = current.month() as i32;
         let year = current.year();
 
-        let timestamp = (second
-            | (minute << 6)
-            | (hour << 12)
-            | (day << 17)
-            | (month << 22)
-            | (year << 26)) as i32;
+        let timestamp = ((second as u32)
+            | ((minute as u32) << 6)
+            | ((hour as u32) << 12)
+            | ((day as u32) << 17)
+            | ((month as u32) << 22)
+            | ((year as u32) << 26)) as i32;
 
         DateTime {
             timestamp,
