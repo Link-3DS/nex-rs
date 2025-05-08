@@ -17,7 +17,6 @@ cipher = "0.4.4"
 getset = "0.1.2"
 hmac = "0.12.1"
 md-5 = "0.10.1"
-no_std_io = { git = "https://github.com/Link-3DS/no_std_io.git", rev = "4a9ca86" }
 num_cpus = "1.16.0"
 num_enum = "0.7.3"
 rand = "0.8.5"
