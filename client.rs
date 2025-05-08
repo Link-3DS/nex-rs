@@ -1,4 +1,5 @@
-use std::net::UdpSocket;
+use std::net::{UdpSocket, SocketAddr};
+use crate::server::PRUDPServer;
 
 pub struct PRUDPClient {
     address: UdpSocket,
@@ -23,7 +24,7 @@ impl PRUDPClient {
         client
     }
 
-    pub fn reset(self) {
+    pub fn reset(&mut self) {
         unimplemented!(); // TODO
     }
 
