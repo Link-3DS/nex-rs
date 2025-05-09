@@ -1,6 +1,5 @@
-use std::net::{UdpSocket, SocketAddr};
+use std::net::UdpSocket;
 use std::sync::{Arc, Mutex};
-use std::time::Duration;
 use std::thread;
 
 #[derive(Clone)]
@@ -35,7 +34,7 @@ impl PRUDPServer {
         self.socket = Some(socket.clone());
     
         for _ in 0..num_cpus::get() {
-            let server_clone = Arc::new(Mutex::new(self.clone()));  
+            let server_clone = Arc::new(Mutex::new(self.clone()));
             thread::spawn(move || {
                 server_clone.lock().unwrap().listen_datagram();
             });
@@ -57,7 +56,7 @@ impl PRUDPServer {
     }
 
     pub fn handle_socket_message(&self) -> Option<String> {
-        None
+        None // TODO
     }
 
     pub fn get_socket(&self) -> UdpSocket {
@@ -83,5 +82,25 @@ impl PRUDPServer {
 
     pub fn set_nex_version(&mut self, nex_version: i32) {
         self.nex_version = nex_version
+    }
+
+    pub fn get_access_key(&self) -> &String {
+        &self.access_key
+    }
+
+    pub fn set_access_key(&mut self, access_key: String) {
+        self.access_key = access_key
+    }
+
+    pub fn get_kerberos_key_size(&self) -> &i32 {
+        &self.kerberos_key_size
+    }
+
+    pub fn set_kerberos_key_size(&mut self, kerberos_key_size: i32) {
+        self.kerberos_key_size = kerberos_key_size
+    }
+
+    pub fn set_fragment_size(&mut self, fragment_size: i32) {
+        self.fragment_size = fragment_size
     }
 }
