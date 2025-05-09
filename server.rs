@@ -35,7 +35,7 @@ impl PRUDPServer {
         self.socket = Some(socket.clone());
     
         for _ in 0..num_cpus::get() {
-            let server_clone = Arc::new(Mutex::new(self.clone()));  // nécessite implémentation Clone
+            let server_clone = Arc::new(Mutex::new(self.clone()));  
             thread::spawn(move || {
                 server_clone.lock().unwrap().listen_datagram();
             });
