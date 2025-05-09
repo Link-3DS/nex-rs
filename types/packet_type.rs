@@ -8,4 +8,5 @@ pub enum PacketType {
     Data = 0x2,
     Disconnect = 0x3,
     Ping = 0x4,
+    User = 0x5,
 }

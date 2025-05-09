@@ -8,6 +8,7 @@
 - [ ] Packets V0/V1/Lite
 - [x] Compression Zlib/Dummy
 - [x] Kerberos
+- [ ] Errors
 
 # Credits
 - PretendoNetwork for their NEX-Go rewritten by us in Rust.

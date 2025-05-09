@@ -2,14 +2,16 @@ use std::net::UdpSocket;
 use std::sync::{Arc, Mutex};
 use std::thread;
 
+use crate::version::Version;
+
 #[derive(Clone)]
 pub struct PRUDPServer {
     socket: Option<Arc<Mutex<UdpSocket>>>,
     access_key: String,
     prudp_version: i32,
-    nex_version: i32,
-    fragment_size: i32,
-    flags_version: i32,
+    version: Version,
+    fragment_size: i16,
+    kerberos_password: String,
     kerberos_key_size: i32
 }
 
@@ -19,9 +21,9 @@ impl PRUDPServer {
             socket: None,
             access_key: String::new(),
             prudp_version: 1,
-            nex_version: 0,
+            version: Version::default(),
             fragment_size: 1300,
-            flags_version: 1,
+            kerberos_password: String::new(),
             kerberos_key_size: 32,
         }
     }
@@ -76,12 +78,12 @@ impl PRUDPServer {
         self.prudp_version = prudp_version
     }
 
-    pub fn get_nex_version(&self) -> &i32 {
-        &self.nex_version
+    pub fn get_version(&self) -> &Version {
+        &self.version
     }
 
-    pub fn set_nex_version(&mut self, nex_version: i32) {
-        self.nex_version = nex_version
+    pub fn set_version(&mut self, version: Version) {
+        self.version = version
     }
 
     pub fn get_access_key(&self) -> &String {
@@ -92,6 +94,14 @@ impl PRUDPServer {
         self.access_key = access_key
     }
 
+    pub fn get_kerberos_password(&self) -> &String {
+        &self.kerberos_password
+    }
+
+    pub fn set_kerberos_password(&mut self, kerberos_password: String) {
+        self.kerberos_password = kerberos_password
+    }
+
     pub fn get_kerberos_key_size(&self) -> &i32 {
         &self.kerberos_key_size
     }
@@ -100,7 +110,7 @@ impl PRUDPServer {
         self.kerberos_key_size = kerberos_key_size
     }
 
-    pub fn set_fragment_size(&mut self, fragment_size: i32) {
+    pub fn set_fragment_size(&mut self, fragment_size: i16) {
         self.fragment_size = fragment_size
     }
 }

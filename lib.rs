@@ -1,8 +1,10 @@
 pub mod sum;
+pub mod rmc;
 pub mod types;
 pub mod server;
 pub mod client;
 pub mod packet;
 pub mod crypto;
+pub mod version;
 pub mod counter;
 pub mod compression;
